@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="user.xsd">
+    <user id="1" role="client">
+        <username>Tunde</username>
+        <name>Tunde Ednut</name>
+        <email>tundeednut@gmail.com</email>
+        <password>tunde</password>
+    </user>
+    <user id="2" role="staff">
+        <username>Ehis</username>
+        <name>Ehis Idialu</name>
+        <email>eedialu@gmail.com</email>
+        <password>hey</password>
+    </user>
+    <user id="3" role="client">
+        <username>Vera</username>
+        <name>Vera Wang</name>
+        <email>verawang@hotmail.com</email>
+        <password>verawang</password>
+    </user>
+</users>
+

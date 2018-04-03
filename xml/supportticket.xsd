@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="tickets">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ticket" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="date" maxOccurs="1" type="xs:date"/>
+                            <xs:element name="title" maxOccurs="1" type="xs:string"/>
+                            <xs:element name="message" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="userId" type="xs:string" use="required"/>
+                                            <xs:attribute name="datetime" type="xs:string" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="response" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="userId" type="xs:string" use="required"/>
+                                            <xs:attribute name="datetime" type="xs:string" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="number" type="xs:integer" use="required" />
+                        <xs:attribute name="client" type="xs:integer" use="required"/>
+                        <xs:attribute name="status" type="status" use="required" />
+                        <xs:attribute name="supportCat" type="category" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--CUSTOM TYPE-->
+    <xs:simpleType name="status">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="resolved"/>
+            <xs:enumeration value="on-going"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="category">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Spam or Abuse"/>
+            <xs:enumeration value="Something isn't Working"/>
+            <xs:enumeration value="General Feedback"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

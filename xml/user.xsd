@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="users">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="username" maxOccurs="1" type="xs:string"/>
+                            <xs:element name="name" maxOccurs="1" type="xs:string"/>
+                            <xs:element name="email" maxOccurs="1" type="email"/>
+                            <xs:element name="password" minOccurs="1" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:integer" use="required" />
+                        <xs:attribute name="role" type="usertype" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--CUSTOM TYPE-->
+    <xs:simpleType name="email">
+        <xs:restriction base="xs:string">
+            <xs:pattern  value="[_\-a-zA-Z0-9\.\+]+@[a-zA-Z0-9](\.?[\-a-zA-Z0-9]*[a-zA-Z0-9])*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="usertype">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="staff"/>
+            <xs:enumeration value="client"/>
+            <xs:enumeration value="intern"/>
+            <xs:enumeration value="volunteer"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
